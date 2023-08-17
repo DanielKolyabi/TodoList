@@ -23,7 +23,7 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment()
 
         if (taskItem != null)
         {
-            binding.taskTitle.text = "Edit Task"
+            binding.taskTitle.text = "Редактировать задачу"
             val editable = Editable.Factory.getInstance()
             binding.name.text = editable.newEditable(taskItem!!.name)
             binding.desc.text = editable.newEditable(taskItem!!.desc)
@@ -35,7 +35,7 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment()
         }
         else
         {
-            binding.taskTitle.text = "New Task"
+            binding.taskTitle.text = "Новая задача"
         }
 
         taskViewModel = ViewModelProvider(activity).get(TaskViewModel::class.java)
@@ -64,7 +64,7 @@ class NewTaskSheet(var taskItem: TaskItem?) : BottomSheetDialogFragment()
         binding.timePickerButton.text = String.format("%02d:%02d",dueTime!!.hour,dueTime!!.minute)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentNewTaskSheetBinding.inflate(inflater,container,false)
         return binding.root
     }
